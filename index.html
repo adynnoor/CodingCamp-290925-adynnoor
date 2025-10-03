@@ -5,16 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <title>Document</title>
+    <title>ToDo - Adyn</title>
 </head>
 <body>
-    <h1>helloword</h1>
-    <h1>Hello World</h1>
-    <h1>Welcome to My Website</h1>
-    <p>This is a sample paragraph to demonstrate the structure of an HTML document.</p>
+    <div class="p-6 max-w-lg mx-auto mt-10 bg-[#FFC29B] rounded-lg shadow-xl/30">
+        <header>
+            <h1 class="text-3xl font-bold text-black">Adyn Todo App</h1>
+        </header>
+        <main>
+            <section class="mt-[16px] flex gap-2" id="input-section">
+                <form>
+                    <input type="text" class="bg-[#FFECC0] text-black rounded-lg p-[8px] inset-shadow-sm/25" id="todo-input" placeholder="Enter a new todo" required>
+                    <input type="date" class="bg-[#FFECC0] text-black rounded-lg p-[8px] inset-shadow-sm/25" id="todo-date" required>
+                    <button type="button" onclick="addTodo()" class="bg-[#F39F9F] rounded-full text-black p-[8px] drop-shadow-lg/25">+ Add Todo</button>
+                </form>
+            </section>
+            <section class="mt-[16px] flex gap-2 items-center">
+                <label for="filter-select" class="sr-only">Filter todos</label>
+                <select id="filter-select" class="bg-[#F39F9F] text-black rounded-lg p-[8px] drop-shadow-lg/25">
+                    <option value="all">All</option>
+                    <option value="done">Done</option>
+                    <option value="undone">Undone</option>
+                </select>
+                <button id="delete-all" class="bg-[#B95E82] rounded-lg text-white p-[8px] drop-shadow-lg/25" onclick="deleteAllTodo()">Delete All</button>
+            </section>
+            <section  class="mt-[16px]">   
+                <ul id="todo-list" class="mt-4">
+                    <p class="text-center text-black">No todos yet. Add one above!</p>
+                </ul>
+            </section>
+        </main>
+        <footer class="mt-[16px] flex gap-2">
+            <p>&copy; 2024 Adyn Todo App</p>
+        </footer>
+    </div>
+    
 
-
+    <!-- Edit popup modal -->
+    <div id="edit-popup" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 hidden">
+        <div class="bg-white p-6 rounded shadow-lg w-full max-w-md">
+            <h2 class="text-xl font-bold mb-4">Edit Todo</h2>
+            <div class="mb-2">
+                <label class="block text-sm font-medium">Task</label>
+                <input id="edit-todo-input" type="text" class="border rounded w-full p-2" />
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm font-medium">Date</label>
+                <input id="edit-todo-date" type="date" class="border rounded w-full p-2" />
+            </div>
+            <div class="flex justify-end gap-2">
+                <button id="cancel-edit-btn" type="button" onclick="document.getElementById('edit-popup').classList.add('hidden')" class="px-4 py-2 rounded border">Cancel</button>
+                <button id="save-edit-btn" type="button" class="px-4 py-2 rounded bg-violet-800 text-white">Save</button>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,44 @@
+body {
+    justify-items: center;
+    align-content: center;
+    height: 100vh;
+    min-height: 100vh;
+
+}
+
+/* Ensure the edit popup appears above other content */
+#edit-popup {
+    z-index: 9999;
+}
+
+/* Small responsive nicety for the modal */
+@media (max-width: 480px) {
+    #edit-popup .max-w-md { width: 90%; }
+}
+
+/* Done button style (green) and completed item appearance */
+.todo-completed {
+    text-decoration: line-through;
+    color: #000000; /* black for readability */
+}
+
+/* Helper colors for the new palette */
+.bg-textbox {
+    background: #FFECC0;
+    color: #000;
+}
+.btn-delete {
+    background: #B95E82;
+    color: #fff;
+}
+.btn-primary {
+    background: #F39F9F;
+    color: #000;
+}
+header{
+    justify-self:center;
+}
+
+footer{
+    justify-self: center;
+}
